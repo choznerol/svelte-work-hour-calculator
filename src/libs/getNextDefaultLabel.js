@@ -7,8 +7,8 @@ import last from 'lodash/last';
  * @returns {'工作'|'吃飯'|'休息'} 猜測的下一個活動
  */
 export function getNextDefaultLabel({ labels }) {
-  if (last(labels) !== '工作') {
-    return '工作';
+  if (!`${last(labels)}`.match(/工/)) {
+    return '復工';
   }
 
   // 到現在吃過幾次飯了？

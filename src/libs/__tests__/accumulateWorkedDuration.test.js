@@ -23,7 +23,7 @@ describe(`workedDuration（假設在 ${NOW.toLocaleString(DateTime.TIME_24_SIMPL
     ${ ['10:00', '12:00', '13:00', '18:00'] }        |  ${ '7:00' }
     ${ [] }                                          |  ${ '0:00' }
   `('當工時紀錄點為 $checkpoints ，則累計工時為 $workedDuration', ({ checkpoints, workedDuration }) => {
-    const actual = accumulateWorkedDuration(hhmmEachToDateTimes(checkpoints)).toFormat('hh:mm');
+    const actual = accumulateWorkedDuration({ checkpoints: hhmmEachToDateTimes(checkpoints) }).toFormat('hh:mm');
     const expected = hhmmToDuration(workedDuration).toFormat('hh:mm');
 
     expect(actual).toEqual(expected);
@@ -34,7 +34,7 @@ describe(`workedDuration（假設在 ${NOW.toLocaleString(DateTime.TIME_24_SIMPL
       const badInput = hhmmEachToDateTimes(['10:09', '10:08'])
 
       expect(() => {
-        accumulateWorkedDuration(badInput);
+        accumulateWorkedDuration({ checkpoints: badInput });
       }).toThrowError(/工時紀錄點們必須是嚴格遞增/)
     })
   })

@@ -9,7 +9,7 @@ import { DateTime, Duration } from 'luxon';
  *                                       自動補上當下時間當成「開始休息」才計算。
  * @returns {Luxon.Duration} 已經工作了多久
  */
-export function accumulateWorkedDuration(checkpoints = []) {
+export function accumulateWorkedDuration({ checkpoints = [] }) {
   checkIncreasing(checkpoints);
   const checkpointsWithEnd = appendEndCheckpointIfNeed(checkpoints);
 
