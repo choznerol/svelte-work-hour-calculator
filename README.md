@@ -1,34 +1,36 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+![Node.js CI](https://github.com/choznerol/svelte-work-hour-calculator/workflows/Node.js%20CI/badge.svg?branch=master)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/946be83b-5219-48d7-8a3f-2dc8e23dfd4a/deploy-status)](https://app.netlify.com/sites/svelte-work-hour-calculator/deploys)
 
----
+# 🚧WIP 🚧 彈性工時計算機
 
-# svelte app
+讓彈性工時、遠端工作者方便紀錄工時的計算機
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+## WIPs
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+- [x] 一鍵紀錄開工、休息、復工的時間點
+- [x] 一鍵複製當天工時概要（e.g. 用於公司打卡系統、回報工作狀態）
+- [ ] 顯示剩餘工時、預計下班時間
+- [ ] 資料同步到 LocalStorage 才不怕重新整理就消失、加個「重設」按鈕
+- [ ] UI/UX 優化
+- [ ] 使用者偏好設定（e.g. 每日工時、休息事件名稱、工時概要格式...etc）
+- [ ] 串接 Slack 即時更新 status（e.g. 開工中、暫離中、預計下班時間...etc）
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
+
+## Development
+
+This project is based on [sveltejs/template](https://github.com/sveltejs/template) and uses [Svelte](https://svelte.dev), [Rollup](https://rollupjs.org/) and [Jest](https://jestjs.io/).
+
+Run tests
+```
+$ npm run test   # OR npm run test:watch
 ```
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
-
-## Get started
-
-Install the dependencies...
-
-```bash
-cd svelte-app
-npm install
+Local development:
 ```
-
-...then start [Rollup](https://rollupjs.org):
-
-```bash
-npm run dev
+$ nvm use        # Or however switch to a Node.js version which matches `.nvmrc`
+$ npm install    # Install the dependencies
+$ npm run dev    # Run a local dev server with Rollup
+$ open http://localhost:5000
 ```
 
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
@@ -55,39 +57,4 @@ If you're building a single-page app (SPA) with multiple routes, sirv needs to b
 
 ```js
 "start": "sirv public --single"
-```
-
-
-## Deploying to the web
-
-### With [now](https://zeit.co/now)
-
-Install `now` if you haven't already:
-
-```bash
-npm install -g now
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-now deploy --name my-project
-```
-
-As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
 ```
